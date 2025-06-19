@@ -1,0 +1,63 @@
+### Base URL
+@baseUrl = http://localhost:8000
+
+
+### Sign Up
+POST {{baseUrl}}/api/auth/signup
+Content-Type: application/json
+
+{
+    "userName": "testuser",
+    "email": "test@example.com",
+    "password": "123456"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "rohan@gmail.com",
+    "password": "rohan11"
+}
+
+### Logout
+GET {{baseUrl}}/api/auth/logout
+
+
+
+### Get Current User
+GET {{baseUrl}}/api/user/current
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODRlZTMzNTgxOWNmYTM4NzVmNDU4MGYiLCJpYXQiOjE3NTAxMDcwODcsImV4cCI6MTc1MDcxMTg4N30.iRrlaR69C5KVID6Z3IboVKXcudjn_SMqNdvrUONadqY
+
+### Get Other Users
+GET {{baseUrl}}/api/user/others
+Cookie: token=yourjwttoken
+
+### Search Users
+GET {{baseUrl}}/api/user/search?query=john
+Cookie: token=yourjwttoken
+
+
+
+
+### Send Text Message
+POST {{baseUrl}}/api/message/send/{{receiverId}}
+Cookie: token=yourjwttoken
+Content-Type: application/json
+
+{
+    "message": "Hello, how are you?"
+}
+
+
+
+
+### Get Messages with a User
+GET {{baseUrl}}/api/message/get/{{receiverId}}
+Cookie: token=yourjwttoken
+
+### Environment Variables
+@receiverId = userid
+@token = yourjwttoken
+
